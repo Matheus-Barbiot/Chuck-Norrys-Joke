@@ -6,6 +6,7 @@ async function gerar() {
     const joke = await response.json()
 
     divResponse.innerHTML = `<p>${joke.value}</p>`
+    console.log(joke.value)
 }
 
 button.addEventListener('click', gerar)
