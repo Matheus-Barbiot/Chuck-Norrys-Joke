@@ -1,6 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* -------------------- RESET -------------------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* -------------------- BASE -------------------- */
+body {
+    font-family: 'Bitter', serif;
+    background: #000;
+    color: white;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100vh;
+    padding: 2rem;
+
+    /* Fundo estilizado */
+    background-image: url("Images/chuck-norris-1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Deixa mais cinemático */
+    backdrop-filter: blur(3px);
+}
+
+/* Camada escura suave por cima do fundo */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.55);
+    z-index: -1;
+}
+
+/* -------------------- HEADER -------------------- */
+header h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #fff5e6;
+    margin-bottom: 0.3em;
+
+    /* Efeito faroeste */
+    text-shadow: 
+        3px 3px 0 #5a2b00,
+        6px 6px 0 rgba(0,0,0,0.4);
+}
+
+header h1 span {
+    color: transparent;
+    -webkit-text-stroke: 2px #fff5e6;
+}
+
+/* -------------------- JOKE CARD -------------------- */
+main p#frase {
+    background: rgba(255, 255, 255, 0.9);
+    color: #2a1f0f;
+    font-size: 1.2rem;
+
+    max-width: 600px;
+    min-width: 300px;
+
+    padding: 2rem;
+    border-radius: 1rem;
+    margin: 1.5rem;
+
+    /* Estilo velho oeste */
+    border: 2px solid #d2b48c;
+    box-shadow:
+        0 4px 20px rgba(0,0,0,0.3),
+        inset 0 0 25px rgba(210, 180, 140, 0.4);
+
+    animation: fade 0.3s ease;
+}
+
+/* -------------------- Destaque do nome Chuck Norris -------------------- */
+.highlight {
+    font-weight: 900;
+    white-space: nowrap; /* nunca quebra linha */
+
+    color: #5a2b00;
+    text-shadow: 
+        1px 1px 0 #fff,
+        2px 2px 0 #e6c89b;
+}
+
+/* -------------------- Animação -------------------- */
+@keyframes fade {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------- FOOTER -------------------- */
+footer {
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+footer, footer a {
+    color: #ffe9c4;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

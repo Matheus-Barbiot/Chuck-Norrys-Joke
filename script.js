@@ -1,12 +1,24 @@
-const button = document.getElementById('gerar')
-const divResponse = document.getElementById('resposta')
+
+const frase = document.getElementById('frase')
 
 async function gerar() {
     const response = await fetch('https://api.chucknorris.io/jokes/random')
     const joke = await response.json()
 
-    divResponse.innerHTML = `<p>${joke.value}</p>`
-    console.log(joke.value)
+    // Coloca a frase
+    frase.innerHTML = joke.value
+
+    // Destaca "Chuck Norris"
+    frase.innerHTML = frase.innerHTML.replace(
+        /Chuck Norris/gi,
+        '<span class="highlight">Chuck Norris</span>'
+    )
 }
 
-button.addEventListener('click', gerar)
+window.addEventListener("load", gerar);
+document.addEventListener('keydown', (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault(); // evita comportamento padrão
+        gerar();
+    }
+})
